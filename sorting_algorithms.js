@@ -49,3 +49,22 @@ const mergeSort = (arr) => {
   const right = arr.slice(mid, arr.length -1);
   return merged(mergeSort(left), mergeSort(right));
 };
+
+// quick sort
+
+const quickSort = (arr) => {
+  if (arr.length <= 1) return arr;
+  const copy = Object.assign([], arr);
+  const pivot = copy.pop();
+  const left = copy.fileter((el) => {
+    return el <= pivot;
+  });
+  const right = copy.fileter((el) => {
+    return el > pivot;
+  });
+
+  return quickSort(left).concat(pivot, quickSort(right));
+};
+
+
+// 
