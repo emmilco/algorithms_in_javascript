@@ -1,7 +1,7 @@
 // dot product
 
 const dotProduct = (n, m) => {
-  const result = 0;
+  let result = 0;
   for (var i = 0; i < n.length; i++) {
     result += n[i] * m[i];
   }

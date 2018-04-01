@@ -2,19 +2,19 @@
 
 const selectionSort = (arr) => {
   const result = [];
-  const copy = Object. assign([], arr);
+  let copy = arr.slice();
   while (copy.length > 0) {
     let min = copy[0];
     for (var i = 0; i < copy.length; i++) {
       if (copy[i] < min) min = copy[i];
     }
     result.push(min);
-    copy.slice(copy.indexOf(min), 1);
+    copy.splice(copy.indexOf(min), 1);
   }
   return result;
 };
 
-// insertion sort
+// insertion sort (in place)
 
 const insertionSort = (arr) => {
   for (var i = 0; i < arr.length; i++) {
@@ -27,6 +27,7 @@ const insertionSort = (arr) => {
       }
     }
   }
+  return arr;
 };
 
 // merge sort
@@ -40,7 +41,7 @@ const mergeSort = (arr) => {
         result.push(right.shift());
       }
     }
-    return result;
+    return result.concat(left, right);
   };
 
   if (arr.length <= 1) return arr;
@@ -67,4 +68,4 @@ const quickSort = (arr) => {
 };
 
 
-// 
+//
